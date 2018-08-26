@@ -1,0 +1,24 @@
+<div class="">
+    <%= link_to 'Home', welcome_index_path%>
+    <h1 class="list-header">Faust Furniture Inventory</h1>
+    <div class="container products-list">
+    
+    <% @products.each do |product|%>
+        
+        <% product.isClearance  == true ? alertStyle="alert alert-danger" : alertStyle="alert alert-light"%>
+        <% product.isClearance  == true ? priceType="On Sale! now at: $" + product.discount_price.to_s + " was: $" + product.price.to_s : priceType="Regularly price at: $" + product.price.to_s%>
+        <%=content_tag :section, :class =>  alertStyle do
+                    content_tag :a, :href =>product_view_path(product.pid), :class => "row col-12 no-gutters" do
+                    concat(content_tag( :div, product.item, {:class => "col-7"}))+
+                    concat(content_tag( :div, priceType, {:class => "col-4"}))    
+                    end
+                
+            end
+        %>
+        <% alertStyle ="" %>
+    <%end%>
+
+        
+    </div>
+</div>
+  
