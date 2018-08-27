@@ -68,3 +68,26 @@ a:hover{
     color:  #edefec;
     text-shadow: #171c16;
 }
+.view-header{
+    text-align: center;
+    font-size: 3rem;
+    color:   #edefec;
+  
+}
+.furniture-item{
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+.furniture-picture{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.furniture-header{
+    color: #273025;
+}
+.description{
+color: #b8bfb6;}

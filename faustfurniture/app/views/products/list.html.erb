@@ -1,9 +1,9 @@
 <div class="">
-    <h1 class="list-header">Faust Furniture Inventory</h1>
+    <h1 class="list-header">Faust Furniture Inventory List</h1>
     <section class="link-to-home"> <%= link_to 'Home', welcome_index_path, :class=> "link-to-home"%></section>
     <div class="container products-list">
     <% @products.each do |product|%>
-        
+        <% if product.quantity.to_i != 0 then %>
         <% product.isClearance  == true ? alertStyle="alert alert-danger" : alertStyle="alert alert-light"%>
         <% product.isClearance  == true ? priceType="On Sale! now at: $" + product.discount_price.to_s + " was: $" + product.price.to_s : priceType="Regularly price at: $" + product.price.to_s%>
         <%=content_tag :section, :class =>  alertStyle do
@@ -15,6 +15,7 @@
             end
         %>
         <% alertStyle ="" %>
+        <%end %>
     <%end%>    
     </div>
 </div>

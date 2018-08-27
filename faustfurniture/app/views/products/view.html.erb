@@ -1,9 +1,15 @@
-<h1>Products#view</h1>
 <div>
+<h1 class="view-header">Faust Furniture</h1>
+<section class="link-to-home"> <%= link_to 'Home', welcome_index_path, :class=> "link-to-home"%></section>
+<div class="furniture-item col-12">
+    <%= image_tag("products/" + @product.img_file, size: "600x400", alt:"furniture", :class=>"furniture-picture" ) %>
+    <h2 class="furniture-header col-12"> <%= @product.item%> </h2>
+    <p class="description col-12"><%= @product.description%> </p>
+    <section class="col-12">
+    <% @product.isClearance == true ? alertStyle ="alert alert-danger" : alertStyle = "alert alert-light" %> 
+    <% @product.isClearance == true ?  content =  "On Clearance! now priced at: $" + @product.discount_price.to_s + " originally $" + @product.price.to_s : content= "Priced at: $" + @product.price.to_s  %>
+    <%=content_tag(:p, content, :class=>alertStyle ) %>
+    </section>
+</div>
 
 </div>
-<h2><%= @product.item%> </h2>
-<p><%= @product.description%> </p>
-
-
-<%= link_to 'Home', welcome_index_path%>

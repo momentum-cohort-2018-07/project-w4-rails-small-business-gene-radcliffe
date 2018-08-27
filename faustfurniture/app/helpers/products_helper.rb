@@ -78,10 +78,7 @@ module ProductsHelper
         products
     end
 
-    def get_product_categories
-        
-
-    end
+  
     def fetch_clearance_items(products)
         clearance_items =[]
         average_condition = fetch_average_condition(products)

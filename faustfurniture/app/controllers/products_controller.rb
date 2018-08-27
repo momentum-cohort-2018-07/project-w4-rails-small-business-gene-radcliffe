@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def view
+    @products = applyClearance(@products)
     find_product
   end
 
@@ -25,7 +26,7 @@ class ProductsController < ApplicationController
 
   def find_product
     @product
-    
+  
     for product in @products
       if product.pid == params[:id] then
         @product = product
