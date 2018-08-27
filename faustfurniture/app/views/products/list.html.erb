@@ -5,7 +5,7 @@
     <% @products.each do |product|%>
         <% if product.quantity.to_i != 0 then %>
         <% product.isClearance  == true ? alertStyle="alert alert-danger" : alertStyle="alert alert-light"%>
-        <% product.isClearance  == true ? priceType="On Sale! now at: $" + product.discount_price.to_s + " was: $" + product.price.to_s : priceType="Regularly price at: $" + product.price.to_s%>
+        <% product.isClearance  == true ? priceType="Clearance! Now at: $" + product.discount_price.to_s + " was: $" + product.price.to_s : priceType="Regularly price at: $" + product.price.to_s%>
         <%=content_tag :section, :class =>  alertStyle do
                     content_tag :a, :href =>product_view_path(product.pid), :class => "row col-12 no-gutters" do
                     concat(content_tag( :div, product.item, {:class => "col-7"}))+
