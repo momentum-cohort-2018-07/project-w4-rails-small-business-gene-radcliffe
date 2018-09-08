@@ -1,0 +1,22 @@
+<div class="container index-container">
+    <div class="row col-12">
+        <h1 class="company col-12" >Faust Furniture</h2>      
+    </div>  
+
+    <div class="header">      
+            <section>
+                <% @categories.each do |category|%>
+                    <%=content_tag :div, :class =>  "category col-4" do
+                        content_tag :a, :href =>product_category_path(category), :class => "" do
+                        concat(content_tag( :h2, category.to_s.upcase, {:class => "category-header"}))  
+                        end
+                    
+                    end
+                    %>
+                <%end%>
+        </section>
+        <section class="link-to-list"><%= link_to 'Our Total Inventory', products_list_path, :class=>"link-to-list" %></section>
+    </div>      
+</div>
+
+
